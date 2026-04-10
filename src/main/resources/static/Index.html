@@ -17,6 +17,9 @@
     <button onclick="addcreateCourse()">create</button>
     <button onclick="getCourses()">print all courses</button>
     <button onclick="removeCourse()">delete</button>
+    <button onclick="updateCourse()">update course</button>
+
+
     <div id="payload"></div>
 
     <script>
@@ -52,6 +55,20 @@
 
         fetch("/courses/"+coursecode,{method: "DELETE"})
             .then(function(){alert("course has been deleted successfully");});}
+
+    function updateCourse(){
+        var  courseCode= document.getElementById("coursecode").value;
+        var newCourse = {
+            instuctor: document.getElementById("instuctor").value,
+            officehours: document.getElementById("officehours").value,
+            officelocation: document.getElementById("officelocation").value,
+            practicalvenue: document.getElementById("practicalvenue").value,
+            credits: document.getElementById("credits").value
+        };
+
+        fetch("/courses/"+courseCode, {method: "PUT", headers: {"Content-Type": "application/json"}, body: JSON.stringify(newCourse)})
+            .then(function(response){alert("course has been updated successfully");});
+    }
     </script>
 
 </body>

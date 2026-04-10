@@ -29,7 +29,7 @@ public class CourseController {
     }
 
     @PutMapping("/courses/{courseCode}")
-    public boolean updateCourse(String courseCode, Course newCourse){
+    public boolean updateCourse(@PathVariable String courseCode,@RequestBody Course newCourse){
         return courseprocessor.updateCourse(courseCode, newCourse);
     }
 }
