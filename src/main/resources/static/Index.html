@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a course</title>
+</head>
+<body>
+    <h1>Add a course please</h1>
+
+    <input id="instuctor" placeholder="Replace with instuctor"><br>
+    <input id="coursecode" placeholder="Replace with coursecode"><br>
+    <input id="officehours" placeholder="Replace with officehours "><br>
+    <input id="officelocation" placeholder="Replace with officelocation "><br>
+    <input id="practicalvenue" placeholder="Replace with practicalvenue"><br>
+    <input id="credits" placeholder="Replace with credits"><br>
+
+    <button onclick="addcreateCourse()">create</button>
+    
+
+    <script>
+    function addcreateCourse(){
+
+        var course = {
+            instuctor: document.getElementById("instuctor").value,
+            coursecode: document.getElementById("coursecode").value,
+            officehours: document.getElementById("officehours").value,
+            officelocation: document.getElementById("officelocation").value,
+            practicalvenue: document.getElementById("practicalvenue").value,
+            credits: document.getElementById("credits").value
+        };
+
+        fetch("/courses", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(course)})
+        .then(function(response){alert("course has been created successfully");});
+    }
+    </script>
+
+</body>
+</html>

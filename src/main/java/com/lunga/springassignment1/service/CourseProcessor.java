@@ -17,8 +17,18 @@ public class CourseProcessor {
 
     }
 
-   public List<Course> pullcourses(){
+   public List<Course> pullCourses(){
         return computerCourses;
+   }
+   public void createCourse(Course comp){
+        try {
+            computerCourses.add(comp);
+            System.out.println(" Course added successfully");
+
+        } catch (Exception e) {
+            System.out.println(" Operation fail , please try again");
+        }
+
    }
 
 }
