@@ -15,7 +15,9 @@
     <input id="credits" placeholder="Replace with credits"><br>
 
     <button onclick="addcreateCourse()">create</button>
-    
+    <button onclick="getCourses()">print all courses</button>
+    <button onclick="removeCourse()">delete</button>
+    <div id="payload"></div>
 
     <script>
     function addcreateCourse(){
@@ -32,6 +34,24 @@
         fetch("/courses", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(course)})
         .then(function(response){alert("course has been created successfully");});
     }
+
+    function getCourses(){
+
+        fetch("/courses")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function (data){document.getElementById("payload").innerText=JSON.stringify(data);
+            })
+    }
+    function removeCourse(){
+
+        var  coursecode= document.getElementById("coursecode").value;
+
+
+
+        fetch("/courses/"+coursecode,{method: "DELETE"})
+            .then(function(){alert("course has been deleted successfully");});}
     </script>
 
 </body>

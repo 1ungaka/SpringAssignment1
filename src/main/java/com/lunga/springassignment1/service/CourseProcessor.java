@@ -31,4 +31,27 @@ public class CourseProcessor {
 
    }
 
+   public boolean removeCourse(String courseCode){
+        for(int i=0;i<computerCourses.size();i++){
+            if(computerCourses.get(i).getCoursecode().equals(courseCode)){
+                computerCourses.remove(i);
+                return true;
+            }
+        }
+        return false;
+   }
+
+    public boolean updateCourse(String courseCode, Course newCourse){
+        for(int i=0;i<computerCourses.size();i++){
+            if(computerCourses.get(i).getCoursecode().equals(courseCode)){
+                computerCourses.get(i).setOfficehours(newCourse.getOfficehours());
+                computerCourses.get(i).setOfficelocation(newCourse.getOfficelocation());
+                computerCourses.get(i).setPracticalvenue(newCourse.getPracticalvenue());
+                computerCourses.get(i).setCredits(newCourse.getCredits());
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

@@ -1,10 +1,7 @@
 package com.lunga.springassignment1.controller;
 import com.lunga.springassignment1.model.Course;
 import com.lunga.springassignment1.service.CourseProcessor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +23,13 @@ public class CourseController {
         courseprocessor.createCourse(comp);
         System.out.println("Received: "+ comp.getCoursecode());
     }
+    @DeleteMapping("/courses/{courseCode}")
+    public boolean removeCourse(@PathVariable String courseCode){
+        return courseprocessor.removeCourse(courseCode);
+    }
 
-
+    @PutMapping("/courses/{courseCode}")
+    public boolean updateCourse(String courseCode, Course newCourse){
+        return courseprocessor.updateCourse(courseCode, newCourse);
+    }
 }
