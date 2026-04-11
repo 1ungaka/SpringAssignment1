@@ -12,9 +12,9 @@ This project was completed with the following collaborators:
 * [Sarile Thokozile + 0799093016]
 * [Akha Cekiso  + AkhaCekiso ]
 * [Qhamani Sobisho + Qhamani36]
-* Achuma Dlula + 202250172
-* Amkitha Xeke 
-
+* [Achuma Dlula + 202250172]
+* [Amkitha Xeke + Amkitha-X]
+* [Asavela Jiba + Asavelajiba18-pixel]
 (All collaborators were added to the GitHub repository for access and contribution.)
 
 ---
